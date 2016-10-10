@@ -4,6 +4,12 @@
 
 {% block content %}
 
+<div class="navbar navbar-default">
+  <a href="http://localhost:3000/donut-tycoon/shops" class="btn" >Donut Shops</a>
+  <a href="http://localhost:3000/donut-tycoon/employees" class="btn">Employees</a>
+  <a href="http://localhost:3000/donut-tycoon/donuts" class="btn">Donuts</a>
+</div>
+
   <h1>These are our shops!</h1>
   <br><br>
   <div class="col-md-5">
@@ -31,6 +37,11 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
+
+  <div class="col-md-offset-1 col-md-3">
+    <h2>Add your own shop here!</h2>
+    <a href="http://localhost:3000/donut-tycoon/shops/new" class="btn btn-default">Add New Shop</a>
   </div>
 
 {% endblock %}

@@ -13,6 +13,29 @@ router.get('/shops', (req, res, next) => {
   });
 });
 
+router.get('/shops/new', (req, res, next) => {
+  res.render('shops_new.html');
+});
+
+router.post('/shops/new', (req, res, next) => {
+  console.log(req.body);
+  if (req.body.name === '' || req.body.city === '') {
+    res.status(404).send({
+      status: 'error',
+      message: 'please fill out the form before submitting'
+    });
+  } else {
+    knex('shops')
+    .insert({
+      name: req.body.name,
+      city: req.body.city
+    })
+    .then((results) => {
+      res.redirect('/donut-tycoon/shops');
+    });
+  }
+});
+
 router.get('/shops/:id', (req, res, next) => {
   var shopId = req.params;
   var singleShopObj = {};
@@ -31,7 +54,7 @@ router.get('/shops/:id/edit', (req, res, next) => {
   .where(oldShopId, 'id')
   .then((results) => {
     oldSingleShopObj = results[0];
-    res.render('shops_edit.html', editSingleShopObj);
+    res.render('shops_edit.html', oldSingleShopObj);
   });
 });
 
@@ -50,9 +73,5 @@ router.post('/shops/:id/edit', (req, res, next) => {
     res.redirect('/donut-tycoon/shops');
   });
 });
-
-router.get('/shops/new', (req, res, next) => {
-  newShopId
-})
 
 module.exports = router;

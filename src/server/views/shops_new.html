@@ -11,20 +11,20 @@
 </div>
 
 <div class="container">
-  <h1>Edit {{name}}</h1>
+  <h1>Create a New Shop!</h1>
   <form method="post">
     <div class="form-group">
       <label for="donut-shop-name">Name:</label>
-      <input type="text" class="form-control" id="donut-shop-name" value="{{name}}" name="name">
+      <input type="text" class="form-control" id="donut-shop-name" value="{{name}}" name="name" placeholder="Name of Donut Shop Goes Here">
     </div>
     <div class="form-group">
       <label for="donut-city">City:</label>
-      <input type="text" class="form-control" id="donut-city" value="{{city}}" name="city">
+      <input type="text" class="form-control" id="donut-city" value="{{city}}" name="city" placeholder="The City The Donut Shop Is In Goes Here">
     </div>
     <div class="container">
       <div class="col-md-6">
-        <input type="submit"></input>
-        <button type="button" name="btn btn-primary"><a href="http://localhost:3000/donut-tycoon/shops">All Shops</a></button>
+        <input type="submit" class="btn btn-success"></input>
+        <a href="http://localhost:3000/donut-tycoon/shops" class="btn btn-warning">Cancel</a>
       </div>
     </div>
   </form>
