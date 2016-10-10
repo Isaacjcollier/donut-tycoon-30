@@ -5,10 +5,12 @@
   routeConfig.init = function (app) {
 
     // *** routes *** //
-    const routes = require('../routes/index');
+    const landingPageRoutes = require('../routes/landing_page.js');
+    const shopsRoutes = require('../routes/shop.js');
 
     // *** register routes *** //
-    app.use('/', routes);
+    app.use('/', landingPageRoutes);
+    app.use('/donut-tycoon', shopsRoutes);
 
   };
 

@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  <h1>These are our shops!</h1>
+  <br><br>
+  <div class="col-md-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for shop in shopListObj%}
+        <tr>
+          <td>{{shop.id}}</td>
+          <td><a href="http://localhost:3000/donut-tycoon/shops/{{shop.id}}">{{shop.name}}</a></td>
+          <td>{{shop.city}}</td>
+          <td>
+            <a class="btn btn-primary" href="http://localhost:3000/donut-tycoon/shops/{{shop.id}}/edit">Edit</a>
+          </td>
+          <td>
+            <a class="btn btn-warning" href="http://localhost:3000/donut-tycoon/shops/{{shop.id}}/edit">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}
