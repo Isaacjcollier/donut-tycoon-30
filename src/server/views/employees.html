@@ -10,6 +10,39 @@
   <a href="http://localhost:3000/donut-tycoon/donuts" class="btn">Donuts</a>
 </div>
 
-<h1>congratz</h1>
+<h1>These are the Employees!</h1>
+<br><br>
+<div class="col-md-7">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Favorite Donut</th>
+        <th>Store #</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in results%}
+      <tr>
+        <td>{{employee.id}}</td>
+        <td><a href="http://localhost:3000/donut-tycoon/shops/{{shop.id}}">{{employee.first_name}} {{employee.last_name}}</a></td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.favorite_donut}}</td>
+        <td>{{employee.shop_id}}</td>
+        <td><a class="btn btn-primary" href="http://localhost:3000/donut-tycoon/shops/{{shop.id}}/edit">Edit</a></td>
+        <td><a class="btn btn-warning" href="http://localhost:3000/donut-tycoon/shops/{{shop.id}}/edit">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="col-md-offset-1 col-md-4">
+  <h2>Add a new employee here!</h2>
+  <br>
+  <a href="http://localhost:3000/donut-tycoon/shops/new" class="btn btn-success">Add New Employee</a>
+</div>
 
 {% endblock %}
